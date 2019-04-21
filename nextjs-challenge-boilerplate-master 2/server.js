@@ -11,7 +11,7 @@ const messageData = []
 
 app.prepare().then(() => {
   const server = express()
-  server.use(express.json())
+  server.use(bodyParser.json())
 
   server.post('/api/guestbook', (req, res, next) => {
     const { name, message } = req.body
