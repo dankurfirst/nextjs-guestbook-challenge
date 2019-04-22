@@ -170,4 +170,4 @@ const Basic = (props) => (
   </div>
 )
 
-  export default Basic
+export default Basic

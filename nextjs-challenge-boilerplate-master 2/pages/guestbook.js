@@ -1,6 +1,40 @@
 import Message from '../components/Message'
 import Header from '../components/Header'
 const axios = require('axios')
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Parisienne']
+  }
+});
+
+const guestbookNameStyle = {
+  fontSize:16,
+  fontFamily: 'Parisienne',
+}
+const guestbookMessageStyle = {
+  fontSize:18,
+  fontFamily: 'Arial',
+
+}
+const messageContainerStyle = {
+  listStyle: 'none',
+  padding: 20,
+}
+
+const messageContainerStyleAltRow = {
+  listStyle: 'none',
+  padding: 20,
+  backgroundColor: '#D9E3F0',
+}
+
+const guestbookContainerStyle = {
+  paddingLeft:200,
+  paddingRight:200,
+}
+
+
 
 
 
@@ -21,6 +55,7 @@ class Guestbook extends React.Component {
     })
   }
 
+  
  
 
   render () {
@@ -29,31 +64,24 @@ class Guestbook extends React.Component {
     <React.Fragment>
     <Header/>
 
-    <h1>Messages</h1>
+    <h1 style={{ fontFamily:'Arial', textAlign: 'center' }}>Your Guest Book</h1>
     { posts.length > 0 ?
-    <ul>
-      { posts.map(post => (
-        <li>
-          <h1>{ post.name }</h1>
-          <p>{ post.message }</p>
+    <div>
+    <ul style={ guestbookContainerStyle }>
+      { posts.map((post, i) => (
+        
+        <li style={ i % 2 == 0 ? messageContainerStyleAltRow : messageContainerStyle }  key={i}>
+          <p style= { guestbookMessageStyle }>{ post.message }</p>
+          <h2 style= { guestbookNameStyle }>{ post.name }</h2>
         </li>
       ))}
-    </ul> : <p>There are no messages</p>
+    </ul> </div> : <p>There are no messages</p>
+    
     }
     </React.Fragment>
     )
       }
     }
-    /*this.getInitialProps = async function() {
-      const res = await fetch('http://localhost:3000/api/guestbook')
-      const data = await res.json()
-    
-      console.log(`Show data fetched. Count: ${data.length}`)
-    
-      return {
-        guestbook: data
-      }
-    }*/
 
       export default Guestbook
 
