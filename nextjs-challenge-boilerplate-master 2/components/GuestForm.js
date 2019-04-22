@@ -133,11 +133,13 @@ const Basic = (props) => (
         }
 
         div {
+          margin-top:50px;
           border-radius: 5px;
-          background-color: #f2f2f2;
+          background-color: #D9E3F0;
           padding: 20px;
-          width: '100%',
-          marginTop: '10px'
+          width: 60%;
+          display: block;
+          margin: auto !important;
         }
 
         h1, a {

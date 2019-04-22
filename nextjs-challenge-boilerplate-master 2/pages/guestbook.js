@@ -24,8 +24,12 @@ const messageContainerStyleAltRow = {
 }
 
 const guestbookContainerStyle = {
-  paddingLeft:200,
-  paddingRight:200,
+  marginLeft:200,
+  marginRight:200,
+  paddingLeft:0,
+  borderWidth:2,
+  borderStyle: 'ridge',
+  borderColor: '#D9E3F0',
 }
 
 
@@ -64,7 +68,7 @@ class Guestbook extends React.Component {
         
         <li style={ i % 2 == 0 ? messageContainerStyleAltRow : messageContainerStyle }  key={i}>
           <p style= { guestbookMessageStyle }>{ post.message }</p>
-          <h2 style= { guestbookNameStyle }>{ post.name }</h2>
+          <h2 style= { guestbookNameStyle }> - { post.name }</h2>
         </li>
       ))}
     </ul> </div> : <p>There are no messages</p>
