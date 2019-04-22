@@ -1,17 +1,11 @@
-import Message from '../components/Message'
 import Header from '../components/Header'
 const axios = require('axios')
-import WebFont from 'webfontloader';
 
-WebFont.load({
-  google: {
-    families: ['Parisienne']
-  }
-});
+
 
 const guestbookNameStyle = {
   fontSize:16,
-  fontFamily: 'Parisienne',
+  fontFamily: 'Arial',
 }
 const guestbookMessageStyle = {
   fontSize:18,
@@ -55,8 +49,6 @@ class Guestbook extends React.Component {
     })
   }
 
-  
- 
 
   render () {
     const { posts } = this.state
